@@ -26,4 +26,10 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+    cordova.exec(function() {
+        console.log("SUCCESS");
+    }, function() {
+        console.log("FAILED");
+    }, "ThinkPlugin", "sayHello", [name]);
 }
