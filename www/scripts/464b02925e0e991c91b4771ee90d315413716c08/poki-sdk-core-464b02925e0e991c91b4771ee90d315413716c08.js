@@ -4729,6 +4729,7 @@
 			};
 
 		function no() {
+			console.log("[THINKMAN] " + "Show Reward video1")
 			var e = "https://api.poki.com/ads/houseads/video/vast";
 			E.kioskMode && (e += "?rand=".concat(Math.random()));
 			var t = new URL(e);
@@ -6749,6 +6750,7 @@
 									videoCacheKey: "amazon"
 								})
 							}
+							console.log("[THINKMAN] " + "Show Reward video3")
 							if (1 === a || v && v.videoCacheKey && !(v.cpm < $i()) || (v = {
 								cpm: $i(),
 								vast: no(),
@@ -6874,6 +6876,7 @@
 				}, t.prototype.cutOffWaterfall = function() {
 					this.ima.tearDown(), this.moveThroughWaterfall()
 				}, t.prototype.startHouseAdFlow = function() {
+					console.log("[THINKMAN] " + "Show Reward video4")
 					var e = no();
 					M.addVideoDataAnnotations({
 						pokiAdServer: !0,
@@ -7529,6 +7532,7 @@
 						e.adsManager.addEventListener(t, e.onAdEvent, !1, e)
 					}))
 				}, t.prototype.onAdEvent = function(t) {
+					console.log("[THINKMAN] " + "Show Reward video5")
 					var n, i, o, r, a, s, d, c, l, u = this,
 						p = t.getAd();
 					switch (t.type) {
@@ -8817,54 +8821,61 @@
 						}
 						return E.specialCondition && i.specialConditions && i.specialConditions.includes(E.specialCondition) ? "landing" === E.specialCondition ? e.p4d_game_id_cond = "".concat(E.gameID, "|l") : "crosspromo" === E.specialCondition ? e.p4d_game_id_cond = "".concat(E.gameID, "|cp") : e.p4d_game_id = E.gameID : e.p4d_game_id = E.gameID, e
 					}, this.runNonIMAVideoHouseAd = function() {
-						M.addVideoDataAnnotations({
-							pokiAdServer: !0
+						console.log("[THINKMAN] " + "Show Reward video2 ");
+						M.dispatchEvent(e.ads.video.clicked);
+						M.dispatchEvent(e.ads.completed, {
+							rewardAllowed: true
 						});
-						var t = function() {
-							return M.dispatchEvent(e.ads.error, {
-								message: "HouseAd playback error"
-							})
-						};
-						(function() {
-							return eo(this, void 0, void 0, (function() {
-								var e, t, n, i, o, r, a, s, d, c, l, u;
-								return to(this, (function(p) {
-									switch (p.label) {
-										case 0:
-											return [4, fetch(no())];
-										case 1:
-											return [4, p.sent()
-												.text()
-											];
-										case 2:
-											return e = p.sent(), t = new DOMParser, n = t.parseFromString(e, "text/xml"), i = (null === (c = null === (d = n.querySelector("ClickThrough")) || void 0 === d ? void 0 : d.textContent) || void 0 === c ? void 0 : c.trim()) || "", o = (null === (u = null === (l = n.querySelector("Duration")) || void 0 === l ? void 0 : l.textContent) || void 0 === u ? void 0 : u.trim()) || "00:00:11", r = o.split(":"), a = 60 * +r[0] * 60 + 60 * +r[1] + +r[2], s = "", n.querySelectorAll("MediaFile")
-												.forEach((function(e) {
-													var t, n = (null === (t = null == e ? void 0 : e.textContent) || void 0 === t ? void 0 : t.trim()) || "";
-													n.includes("advertisement.h264_high.mp4") && (s = n)
-												})), E.kioskMode ? [2, {
-													duration: a,
-													videoUrl: s
-												}] : [2, {
-													clickThrough: i,
-													duration: a,
-													videoUrl: s
-												}]
-									}
-								}))
-							}))
-						})()
-						.then((function(e) {
-								try {
-									i.playerSkin.show(), i.playerSkin.startNonIMAFallbackVideo(e)
-								} catch (e) {
-									t()
-								}
-							}))
-							.catch((function() {
-								S.sendMessage(e.message.sendCommand, {
-									event: "adLibrariesNotLoaded"
-								}), t()
-							}))
+						// M.addVideoDataAnnotations({
+						// 	pokiAdServer: !0
+						// });
+						// var t = function() {
+						// 	return M.dispatchEvent(e.ads.error, {
+						// 		message: "HouseAd playback error"
+						// 	})
+						// };
+						// (function() {
+						// 	return eo(this, void 0, void 0, (function() {
+						// 		var e, t, n, i, o, r, a, s, d, c, l, u;
+						// 		return to(this, (function(p) {
+						// 			console.log("[THINKMAN] " + "Show Reward video2 " + p.label);
+						// 			switch (p.label) {
+						// 				case 0:
+						// 					console.log("[THINKMAN] " + "Show Reward video2-1 " + p.label);
+						// 					return [4, fetch(no())];
+						// 				case 1:
+						// 					return [4, p.sent()
+						// 						.text()
+						// 					];
+						// 				case 2:
+						// 					return e = p.sent(), t = new DOMParser, n = t.parseFromString(e, "text/xml"), i = (null === (c = null === (d = n.querySelector("ClickThrough")) || void 0 === d ? void 0 : d.textContent) || void 0 === c ? void 0 : c.trim()) || "", o = (null === (u = null === (l = n.querySelector("Duration")) || void 0 === l ? void 0 : l.textContent) || void 0 === u ? void 0 : u.trim()) || "00:00:11", r = o.split(":"), a = 60 * +r[0] * 60 + 60 * +r[1] + +r[2], s = "", n.querySelectorAll("MediaFile")
+						// 						.forEach((function(e) {
+						// 							var t, n = (null === (t = null == e ? void 0 : e.textContent) || void 0 === t ? void 0 : t.trim()) || "";
+						// 							n.includes("advertisement.h264_high.mp4") && (s = n)
+						// 						})), E.kioskMode ? [2, {
+						// 							duration: a,
+						// 							videoUrl: s
+						// 						}] : [2, {
+						// 							clickThrough: i,
+						// 							duration: a,
+						// 							videoUrl: s
+						// 						}]
+						// 			}
+						// 		}))
+						// 	}))
+						// })()
+						// .then((function(e) {
+						// 		try {
+						// 			i.playerSkin.show(), i.playerSkin.startNonIMAFallbackVideo(e)
+						// 		} catch (e) {
+						// 			t()
+						// 		}
+						// 	}))
+						// 	.catch((function() {
+						// 		S.sendMessage(e.message.sendCommand, {
+						// 			event: "adLibrariesNotLoaded"
+						// 		}), t()
+						// 	}))
 					}, window.googletag = window.googletag || {
 						cmd: []
 					}, window.pbjs = window.pbjs || {
