@@ -9774,6 +9774,25 @@ function appEnterFrame(){
 
 
 //- APP
+//TODO create canvas_3d canvas_2d by js here
+
+// <div id="main" style="visibility: visible;">
+//     <div id="three"><canvas id="canvas_3d" data-engine="three.js r151" width="1125" height="1350" style="width: 750px; height: 900px;"></canvas></div>
+//     <div id="pixi"><canvas id="canvas_2d" width="1125" height="1350" style="touch-action: none; width: 750px; height: 900px; cursor: inherit;"></canvas></div>
+// </div>
+// let divStorm = document.createElement("div");
+// divStorm.style.display	= "none";
+// divStorm.style.position	= "absolute";
+// divStorm.style.top		= "100%";
+// divStorm.style.left		= "100%";
+// divStorm.innerHTML		= '<canvas id="stageTemp_'+titleTexture+'" width="'+Math.ceil(10+fontBaseTexture.width*_style.fontSize/100)+'" height="'+Math.ceil(10+fontBaseTexture.height*_style.fontSize/100)+'" style="background:transparent;">';
+// document.body.appendChild(divStorm);
+
+let divMain = document.createElement("div");
+divMain.id = "main"
+divMain.style.visibility = "visible";
+divMain.innerHTML = '<div id="three"><canvas id="canvas_3d" data-engine="three.js r151" width="1125" height="1350" style="width: 750px; height: 900px;"></canvas></div><div id="pixi"><canvas id="canvas_2d" width="1125" height="1350" style="touch-action: none; width: 750px; height: 900px; cursor: inherit;"></canvas></div>'
+document.body.appendChild(divMain);
 
 let app = {
     scaleFactor		: 1.5,
