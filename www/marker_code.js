@@ -9857,6 +9857,14 @@ function mk_main_div () {
   document.body.appendChild(divMain);
 }
 
+function load_css_file () {
+  let cssNode = document.createElement("link");
+  cssNode.rel = "stylesheet";
+  cssNode.href = "./style.css";
+  document.body.appendChild(cssNode);
+}
+
+load_css_file();
 mk_progress_img();
 mk_main_div();
 
